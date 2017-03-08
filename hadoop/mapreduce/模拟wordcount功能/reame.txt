@@ -1,0 +1,9 @@
+1.操作记录及效果演示见文件session.log
+
+2.WordcountMapper:实现MapTask功能，读取文件内容，将单词作为key，value作为1，输出结果作为ReduceTask的输入
+
+3.WordcountReducer:实现ReduceTask功能，将MapTask的输出作为输入，对不同单词的总数进行统计
+
+4.WordcountDriver:yarn集群的客户端，封装mapreduce程序的相关运行参数，指定jar包,最后提交给yarn
+
+5.WordCountDemo:jar包
