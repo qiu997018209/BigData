@@ -2,7 +2,7 @@
 
 2.数据源：flow.log
 
-3.项目代码：FlowCount.java和FlowBean.java
+3.项目代码：FlowCount.java和FlowBean.java，函数入口为FlowCount.java
 
 4.操作日志及效果：操作日志及效果.txt
 
