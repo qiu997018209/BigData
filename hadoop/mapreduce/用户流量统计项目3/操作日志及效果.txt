@@ -1,0 +1,199 @@
+[root@mini1 home]# hadoop jar FlowCount.jar cn.qiujiahao.bigdata.mr.flowsum.FlowCount /input /flowsum/output
+17/03/10 23:10:21 INFO client.RMProxy: Connecting to ResourceManager at mini1/192.168.199.3:8032
+17/03/10 23:10:24 WARN mapreduce.JobResourceUploader: Hadoop command-line option parsing not performed. Implement the Tool interface and execute your application with ToolRunner to remedy this.
+17/03/10 23:10:26 INFO input.FileInputFormat: Total input paths to process : 1
+17/03/10 23:10:26 INFO mapreduce.JobSubmitter: number of splits:1
+17/03/10 23:10:28 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1488757973844_0009
+17/03/10 23:10:29 INFO impl.YarnClientImpl: Submitted application application_1488757973844_0009
+17/03/10 23:10:29 INFO mapreduce.Job: The url to track the job: http://mini1:8088/proxy/application_1488757973844_0009/
+17/03/10 23:10:29 INFO mapreduce.Job: Running job: job_1488757973844_0009
+17/03/10 23:11:02 INFO mapreduce.Job: Job job_1488757973844_0009 running in uber mode : false
+17/03/10 23:11:02 INFO mapreduce.Job:  map 0% reduce 0%
+17/03/10 23:11:30 INFO mapreduce.Job:  map 100% reduce 0%
+17/03/10 23:11:52 INFO mapreduce.Job:  map 100% reduce 100%
+17/03/10 23:11:53 INFO mapreduce.Job: Job job_1488757973844_0009 completed successfully
+17/03/10 23:11:53 INFO mapreduce.Job: Counters: 49
+        File System Counters
+                FILE: Number of bytes read=839
+                FILE: Number of bytes written=215069
+                FILE: Number of read operations=0
+                FILE: Number of large read operations=0
+                FILE: Number of write operations=0
+                HDFS: Number of bytes read=2287
+                HDFS: Number of bytes written=572
+                HDFS: Number of read operations=6
+                HDFS: Number of large read operations=0
+                HDFS: Number of write operations=2
+        Job Counters 
+                Launched map tasks=1
+                Launched reduce tasks=1
+                Data-local map tasks=1
+                Total time spent by all maps in occupied slots (ms)=23849
+                Total time spent by all reduces in occupied slots (ms)=18859
+                Total time spent by all map tasks (ms)=23849
+                Total time spent by all reduce tasks (ms)=18859
+                Total vcore-milliseconds taken by all map tasks=23849
+                Total vcore-milliseconds taken by all reduce tasks=18859
+                Total megabyte-milliseconds taken by all map tasks=24421376
+                Total megabyte-milliseconds taken by all reduce tasks=19311616
+        Map-Reduce Framework
+                Map input records=22
+                Map output records=22
+                Map output bytes=789
+                Map output materialized bytes=839
+                Input split bytes=97
+                Combine input records=0
+                Combine output records=0
+                Reduce input groups=21
+                Reduce shuffle bytes=839
+                Reduce input records=22
+                Reduce output records=21
+                Spilled Records=44
+                Shuffled Maps =1
+                Failed Shuffles=0
+                Merged Map outputs=1
+                GC time elapsed (ms)=503
+                CPU time spent (ms)=5670
+                Physical memory (bytes) snapshot=302526464
+                Virtual memory (bytes) snapshot=1719521280
+                Total committed heap usage (bytes)=136704000
+        Shuffle Errors
+                BAD_ID=0
+                CONNECTION=0
+                IO_ERROR=0
+                WRONG_LENGTH=0
+                WRONG_MAP=0
+                WRONG_REDUCE=0
+        File Input Format Counters 
+                Bytes Read=2190
+        File Output Format Counters 
+                Bytes Written=572
+[root@mini1 home]# hadoop fs -ls /flowsum/output
+Found 2 items
+-rw-r--r--   2 root supergroup          0 2017-03-10 23:11 /flowsum/output/_SUCCESS
+-rw-r--r--   2 root supergroup        572 2017-03-10 23:11 /flowsum/output/part-r-00000
+[root@mini1 home]# hadoop fs -cat /flowsum/output/part-r-00000
+13480253104     180     180     360
+13502468823     7335    110349  117684
+13560436666     1116    954     2070
+13560439658     2034    5892    7926
+13602846565     1938    2910    4848
+13660577991     6960    690     7650
+13719199419     240     0       240
+13726230503     2481    24681   27162
+13726238888     2481    24681   27162
+13760778710     120     120     240
+13826544101     264     0       264
+13922314466     3008    3720    6728
+13925057413     11058   48243   59301
+13926251106     240     0       240
+13926435656     132     1512    1644
+15013685858     3659    3538    7197
+15920133257     3156    2936    6092
+15989002119     1938    180     2118
+18211575961     1527    2106    3633
+18320173382     9531    2412    11943
+84138413        4116    1432    5548
+
+
+[root@mini1 home]# rz
+rz waiting to receive.
+ zmodem trl+C ?
+  100%       8 KB    8 KB/s 00:00:01       0 Errors
+
+[root@mini1 home]# hadoop jar FlowCountSort.jar cn.qiujiahao.bigdata.mr.flowsum.FlowCountSort /flowsum/output/part-r-00000 /flowsum/output2
+17/03/10 23:21:43 INFO client.RMProxy: Connecting to ResourceManager at mini1/192.168.199.3:8032
+17/03/10 23:21:47 WARN mapreduce.JobResourceUploader: Hadoop command-line option parsing not performed. Implement the Tool interface and execute your application with ToolRunner to remedy this.
+17/03/10 23:21:49 INFO input.FileInputFormat: Total input paths to process : 1
+17/03/10 23:21:50 INFO mapreduce.JobSubmitter: number of splits:1
+17/03/10 23:21:52 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1488757973844_0011
+17/03/10 23:21:53 INFO impl.YarnClientImpl: Submitted application application_1488757973844_0011
+17/03/10 23:21:53 INFO mapreduce.Job: The url to track the job: http://mini1:8088/proxy/application_1488757973844_0011/
+17/03/10 23:21:54 INFO mapreduce.Job: Running job: job_1488757973844_0011
+17/03/10 23:22:29 INFO mapreduce.Job: Job job_1488757973844_0011 running in uber mode : false
+17/03/10 23:22:29 INFO mapreduce.Job:  map 0% reduce 0%
+17/03/10 23:23:00 INFO mapreduce.Job:  map 100% reduce 0%
+17/03/10 23:23:29 INFO mapreduce.Job:  map 100% reduce 100%
+17/03/10 23:23:30 INFO mapreduce.Job: Job job_1488757973844_0011 completed successfully
+17/03/10 23:23:31 INFO mapreduce.Job: Counters: 49
+        File System Counters
+                FILE: Number of bytes read=801
+                FILE: Number of bytes written=215063
+                FILE: Number of read operations=0
+                FILE: Number of large read operations=0
+                FILE: Number of write operations=0
+                HDFS: Number of bytes read=682
+                HDFS: Number of bytes written=572
+                HDFS: Number of read operations=6
+                HDFS: Number of large read operations=0
+                HDFS: Number of write operations=2
+        Job Counters 
+                Launched map tasks=1
+                Launched reduce tasks=1
+                Data-local map tasks=1
+                Total time spent by all maps in occupied slots (ms)=25917
+                Total time spent by all reduces in occupied slots (ms)=25968
+                Total time spent by all map tasks (ms)=25917
+                Total time spent by all reduce tasks (ms)=25968
+                Total vcore-milliseconds taken by all map tasks=25917
+                Total vcore-milliseconds taken by all reduce tasks=25968
+                Total megabyte-milliseconds taken by all map tasks=26539008
+                Total megabyte-milliseconds taken by all reduce tasks=26591232
+        Map-Reduce Framework
+                Map input records=21
+                Map output records=21
+                Map output bytes=753
+                Map output materialized bytes=801
+                Input split bytes=110
+                Combine input records=0
+                Combine output records=0
+                Reduce input groups=21
+                Reduce shuffle bytes=801
+                Reduce input records=21
+                Reduce output records=21
+                Spilled Records=42
+                Shuffled Maps =1
+                Failed Shuffles=0
+                Merged Map outputs=1
+                GC time elapsed (ms)=667
+                CPU time spent (ms)=5720
+                Physical memory (bytes) snapshot=300879872
+                Virtual memory (bytes) snapshot=1718759424
+                Total committed heap usage (bytes)=136056832
+        Shuffle Errors
+                BAD_ID=0
+                CONNECTION=0
+                IO_ERROR=0
+                WRONG_LENGTH=0
+                WRONG_MAP=0
+                WRONG_REDUCE=0
+        File Input Format Counters 
+                Bytes Read=572
+        File Output Format Counters 
+                Bytes Written=572
+[root@mini1 home]# hadoop fs -ls /flowsum/output2
+Found 2 items
+-rw-r--r--   2 root supergroup          0 2017-03-10 23:23 /flowsum/output2/_SUCCESS
+-rw-r--r--   2 root supergroup        572 2017-03-10 23:23 /flowsum/output2/part-r-00000
+[root@mini1 home]# hadoop fs -cat /flowsum/output2/part-r-00000
+13502468823     7335    110349  117684
+13925057413     11058   48243   59301
+13726230503     2481    24681   27162
+13726238888     2481    24681   27162
+18320173382     9531    2412    11943
+13560439658     2034    5892    7926
+13660577991     6960    690     7650
+15013685858     3659    3538    7197
+13922314466     3008    3720    6728
+15920133257     3156    2936    6092
+84138413        4116    1432    5548
+13602846565     1938    2910    4848
+18211575961     1527    2106    3633
+15989002119     1938    180     2118
+13560436666     1116    954     2070
+13926435656     132     1512    1644
+13480253104     180     180     360
+13826544101     264     0       264
+13719199419     240     0       240
+13760778710     120     120     240
+13926251106     240     0       240
