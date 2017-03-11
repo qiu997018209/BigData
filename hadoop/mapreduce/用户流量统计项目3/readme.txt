@@ -9,4 +9,4 @@
 
 4.操作日志及效果：操作日志及效果.txt
 
-5.java架包：FlowCount.jar和FlowCountSort.jar
+5.jar架包：FlowCount.jar和FlowCountSort.jar
