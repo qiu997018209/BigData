@@ -9,10 +9,12 @@
 		    P0002	锤子T1	1000	3
 		    P0003	锤子T2	1002	4
 
-2.数据源：order.txt和product.txt
+2.在reduce端实现
 
-3.项目代码：RJoin.java和InfoBean.java，函数入口为RJoin.java
+3.数据源：order.txt和product.txt
 
-4.效果展示：效果演示.txt
+4.项目代码：RJoin.java和InfoBean.java，函数入口为RJoin.java
 
-5.jar架包：rjoin.jar
+5.效果展示：效果演示.txt
+
+6.jar架包：rjoin.jar
