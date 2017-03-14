@@ -1,0 +1,13 @@
+a	b.txt-->2	
+be	b.txt-->2	
+great	b.txt-->2	
+hao	a.txt-->3	c.txt-->1	
+hard	a.txt-->3	
+hello	a.txt-->3	b.txt-->2	c.txt-->1	
+jia	a.txt-->3	c.txt-->1	
+man	b.txt-->2	
+qiu	a.txt-->3	b.txt-->2	c.txt-->1	
+should	a.txt-->3	
+will	b.txt-->2	
+work	a.txt-->3	
+you	a.txt-->3	b.txt-->2	
